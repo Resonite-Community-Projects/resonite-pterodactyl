@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: boltwolf-networks-headless-pod
+  namespace: neosvr
+spec:
+  hostNetwork: true
+  containers:
+    - name: neosvr-headless
+      image: registry.gitlab.com/boltwolf/neosvr-headless
+      stdin: true
+      tty: true
+      env:
+        - name: STEAMBETA
+          valueFrom:
+            configMapKeyRef:
+              name: boltwolf-networks-headless-config
+              key: STEAMBETA
+        - name: STEAMBETAPASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: boltwolf-networks-headless-config
+              key: STEAMBETAPASSWORD
+        - name: STEAMLOGIN
+          valueFrom:
+            configMapKeyRef:
+              name: boltwolf-networks-headless-config
+              key: STEAMLOGIN
+      volumeMounts:
+        - name: config-vol
+          mountPath: /Config
+          readOnly: true
+        - name: logs-vol
+          mountPath: /Logs
+  volumes:
+    - name: config-vol
+      configMap:
+        name: boltwolf-networks-headless-config
+        items:
+          - key: Config.json
+            path: Config.json
+    - name: logs-vol
+      emptyDir: {}
