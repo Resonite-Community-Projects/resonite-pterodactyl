@@ -61,4 +61,5 @@ WORKDIR ${STEAMAPPDIR}
 
 VOLUME ["${STEAMAPPDIR}", "/Config", "/Logs"]
 
-CMD ["screen", "-i", "-t", "-d", "-S", "headless", "-c", "bash", "/Scripts/start_neosvr.sh"]
+
+CMD ["bash", "/Scripts/start_neosvr.sh"]
