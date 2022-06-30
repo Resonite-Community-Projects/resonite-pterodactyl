@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -z "$STY" ]; then exec screen -dm -S screenName /bin/bash "$0"; fi
 
