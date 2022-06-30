@@ -17,12 +17,12 @@ ENV	STEAMAPPDIR="${HOMEDIR}/${STEAMAPP}-headless"
 RUN	set -x && \
 	apt-get -y update && \
 	apt-get -y upgrade && \
-	apt-get -y install curl lib32gcc1 && \
+	apt-get -y install curl lib32gcc1 screen && \
 	rm -rf /var/lib/{apt,dpkg,cache}
 
 # Add locales
 RUN	apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get install -y locales screen
+	DEBIAN_FRONTEND=noninteractive apt-get install -y locales
 
 RUN	sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 	sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen && \
