@@ -7,25 +7,28 @@ spec:
   hostNetwork: true
   containers:
     - name: neosvr-headless
-      image: registry.gitlab.com/boltwolf/neosvr-headless
-      stdin: true
+      image: registry.gitlab.com/boltwolf/neosvr-headless:latest
       tty: true
+      stdin: true
       env:
         - name: STEAMBETA
           valueFrom:
-            configMapKeyRef:
-              name: boltwolf-networks-headless-config
+            secretKeyRef:
+              name: steambeta
               key: STEAMBETA
+              optional: false
         - name: STEAMBETAPASSWORD
           valueFrom:
-            configMapKeyRef:
-              name: boltwolf-networks-headless-config
+            secretKeyRef:
+              name: steambetapassword
               key: STEAMBETAPASSWORD
+              optional: false
         - name: STEAMLOGIN
           valueFrom:
-            configMapKeyRef:
-              name: boltwolf-networks-headless-config
+            secretKeyRef:
+              name: steamlogin
               key: STEAMLOGIN
+              optional: false
       volumeMounts:
         - name: config-vol
           mountPath: /Config
