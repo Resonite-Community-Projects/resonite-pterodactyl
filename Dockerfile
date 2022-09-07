@@ -17,7 +17,7 @@ ENV	STEAMAPPDIR="${HOMEDIR}/${STEAMAPP}-headless"
 RUN	set -x && \
 	apt-get -y update && \
 	apt-get -y upgrade && \
-	apt-get -y install curl lib32gcc1 screen && \
+	apt-get -y install curl lib32gcc1 && \
 	rm -rf /var/lib/{apt,dpkg,cache}
 
 # Add locales
@@ -31,7 +31,7 @@ RUN	sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 	update-locale LANG=en_GB.UTF-8 && \
 	rm -rf /var/lib/{apt,dpkg,cache}
 
-ENV	LANG en_GB.UTF-8 
+ENV	LANG en_GB.UTF-8
 
 # Fix the LetsEncrypt CA cert
 RUN	sed -i 's#mozilla/DST_Root_CA_X3.crt#!mozilla/DST_Root_CA_X3.crt#' /etc/ca-certificates.conf && update-ca-certificates
@@ -49,17 +49,20 @@ RUN	addgroup -gid ${USER} steam && \
 	curl -sqL ${STEAMCMDURL} | tar zxfv - && \
 	chown -R ${USER}:${USER} ${STEAMCMDDIR} ${HOMEDIR} ${STEAMAPPDIR} /Config /Logs
 
-COPY	./start_neosvr.sh /Scripts/
+COPY	./setup_neosvr.sh ./start_neosvr.sh /Scripts/
+COPY    ./Config.json /Config/
 
-RUN	chown -R ${USER}:${USER} /Scripts/start_neosvr.sh && \
-	chmod +x /Scripts/start_neosvr.sh
+RUN	chown -R ${USER}:${USER} /Scripts/setup_neosvr.sh /Scripts/start_neosvr.sh && \
+	chmod +x /Scripts/setup_neosvr.sh /Scripts/start_neosvr.sh
 
 # Switch to user
 USER ${USER}
 
 WORKDIR ${STEAMAPPDIR}
 
-VOLUME ["${STEAMAPPDIR}", "/Config", "/Logs"]
+VOLUME ["${STEAMAPPDIR}"]
 
+STOPSIGNAL SIGINT
 
-CMD ["bash", "/Scripts/start_neosvr.sh"]
+ENTRYPOINT ["/Scripts/setup_neosvr.sh"]
+CMD ["/Scripts/start_neosvr.sh"]
