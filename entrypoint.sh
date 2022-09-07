@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cd Steam/steamapps/common/NeosVR
 
