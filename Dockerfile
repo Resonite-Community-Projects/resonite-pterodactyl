@@ -12,6 +12,8 @@ RUN	sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 
 ENV	LANG en_GB.UTF-8
 
+RUN sed -i 's#mozilla/DST_Root_CA_X3.crt#!mozilla/DST_Root_CA_X3.crt#' /etc/ca-certificates.conf && update-ca-certificates
+
 USER container
 ENV  USER=container HOME=/home/container
 
