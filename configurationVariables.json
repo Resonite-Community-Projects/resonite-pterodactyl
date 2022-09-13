@@ -1,0 +1,21 @@
+{
+    "Steam/steamapps/common/NeosVR/Config/Config.json": {
+        "parser": "json",
+        "find": {
+            "loginCredential": "{{server.build.env.HEADLESS_EMAIL}}",
+            "loginPassword": "{{server.build.env.HEADLESS_PASS}}",
+            "maxConcurrentAssetTransfers": "{{server.build.env.CONCURRENT_TRANSFERS}}",
+            "startWorlds[0].sessionName": "{{server.build.env.SESSION_NAME}}",
+            "startWorlds[0].customSessionId": "{{server.build.env.SESSION_ID}}",
+            "startWorlds[0].description": "{{server.build.env.SESSION_DESCRIPTION}}",
+            "startWorlds[0].loadWorldURL": "{{server.build.env.WORLD_URL}}",
+            "startWorlds[0].accessLevel": "{{server.build.env.ACCESS_LEVEL}}",
+            "startWorlds[0].idleRestartInterval": "{{server.build.env.IDLE_RESTART_INTERVAL}}",
+            "startWorlds[0].roleCloudVariable": "{{server.build.env.ROLE_CLOUD_VARIABLE}}",
+            "startWorlds[0].allowUserCloudVariable": "{{server.build.env.ALLOW_USER_CLOUD_VARIABLE}}",
+            "startWorlds[0].hideFromPublicListing": "{{server.build.env.HIDDEN}}",
+            "startWorlds[0].maxUsers": "{{server.build.env.MAXUSERS}}",
+            "startWorlds[0].awayKickMinutes": "{{server.build.env.AFKTIMEOUT}}"
+        }
+    }
+}
