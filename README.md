@@ -1,4 +1,4 @@
-# neosvr-headless
+# neosvr-pterodactyl
 Docker image for Pterodactyl NeosVR headless server.
 
 ### Simple setup
