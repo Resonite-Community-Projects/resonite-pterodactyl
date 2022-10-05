@@ -3,7 +3,7 @@ Docker image for Pterodactyl NeosVR headless server.
 
 ### Simple setup
 
-Import egg-single-session.json for a starting point with a single session setup. 
+Import egg-single-session-template.json for a starting point with a single session setup. 
 
 ### Or if you prefer to build the egg yourself:
 
