@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Neos-Metaverse/JSONSchemas/main/schemas/NeosHeadlessConfig.schema.json",
+  "allowedUrlHosts": [
+    "localhost",
+    "ad-sessions.neos.boltwolf.net"
+  ],
+  "autoSpawnItems": null,
+  "cacheFolder": null,
+  "comment": "",
+  "dataFolder": null,
+  "loginCredential": "LOGIN_USERNAME",
+  "loginPassword": "LOGIN_PASSWORD",
+  "logsFolder": null,
+  "maxConcurrentAssetTransfers": 8,
+  "startWorlds": [
+    {
+      "accessLevel": "RegisteredUsers",
+      "allowUserCloudVariable": "",
+      "autoInviteMessage": null,
+      "autoInviteUsernames": null,
+      "autoRecover": true,
+      "autoSleep": false,
+      "autosaveInterval": -1,
+      "awayKickMinutes": 2,
+      "customSessionId": "SESSION_ID",
+      "defaultUserRoles": {},
+      "denyUserCloudVariable": null,
+      "description": "awoo",
+      "forcedRestartInterval": -1,
+      "hideFromPublicListing": 1,
+      "idleRestartInterval": 21600,
+      "isEnabled": true,
+      "keepOriginalRoles": false,
+      "loadWorldPresetName": "SpaceWorld",
+      "loadWorldURL": "START_WORLD_URL",
+      "maxUsers": 24,
+      "mobileFriendly": false,
+      "overrideCorrespondingWorldId": null,
+      "parentSessionIds": [],
+      "requiredUserJoinCloudVariable": null,
+      "requiredUserJoinCloudVariableDenyMessage": null,
+      "roleCloudVariable": "",
+      "saveAsOwner": null,
+      "saveOnExit": false,
+      "sessionName": "SESSION_NAME",
+      "tags": []
+    }
+  ],
+  "tickRate": 60,
+  "universeId": null,
+  "usernameOverride": null
+}
