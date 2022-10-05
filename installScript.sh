@@ -29,6 +29,6 @@ export STEAMAPPDIR=Steam/steamapps/common/NeosVR
 
 mkdir ${STEAMAPPDIR}/Config
 
-curl -sSL -o ${STEAMAPPDIR}/Config/Config.json "https://gitlab.com/BoltWolf/neosvr-headless/-/snippets/2403983/raw/main/Config.json"
+curl -sSL -o ${STEAMAPPDIR}/Config/Config.json "https://raw.githubusercontent.com/GrayBoltWolf/neosvr-headless/master/Config.json"
 
 echo "done"
