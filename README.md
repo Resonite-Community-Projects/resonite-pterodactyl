@@ -7,7 +7,7 @@ Import egg-single-session.json for a starting point with a single session setup.
 
 ### Or if you prefer to build the egg yourself:
 
-Docker image: `registry.gitlab.com/boltwolf/neosvr-headless:latest`
+Docker image: `ghcr.io/grayboltwolf/neosvr-headless:master`
 
 Install script can be found in: `installScript.sh`, use `ghcr.io/pterodactyl/installers:debian` as the script container, and `bash` as the entrypoint command.
 
