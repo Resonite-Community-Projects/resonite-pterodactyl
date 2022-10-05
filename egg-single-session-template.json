@@ -1,0 +1,243 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2022-10-05T10:21:01-04:00",
+    "name": "Single Session",
+    "author": "technical@boltwolf.net",
+    "description": null,
+    "features": null,
+    "docker_images": {
+        "ghcr.io\/neosvr-community-projects\/neosvr-pterodactyl:master": "ghcr.io\/neosvr-community-projects\/neosvr-pterodactyl:master"
+    },
+    "file_denylist": [],
+    "startup": "mono Neos.exe",
+    "config": {
+        "files": "{\r\n    \"Steam\/steamapps\/common\/NeosVR\/Config\/Config.json\": {\r\n        \"parser\": \"json\",\r\n        \"find\": {\r\n            \"loginCredential\": \"{{server.build.env.HEADLESS_EMAIL}}\",\r\n            \"loginPassword\": \"{{server.build.env.HEADLESS_PASS}}\",\r\n            \"maxConcurrentAssetTransfers\": \"{{server.build.env.CONCURRENT_TRANSFERS}}\",\r\n            \"startWorlds[0].sessionName\": \"{{server.build.env.SESSION_NAME}}\",\r\n            \"startWorlds[0].customSessionId\": \"{{server.build.env.SESSION_ID}}\",\r\n            \"startWorlds[0].description\": \"{{server.build.env.SESSION_DESCRIPTION}}\",\r\n            \"startWorlds[0].loadWorldURL\": \"{{server.build.env.WORLD_URL}}\",\r\n            \"startWorlds[0].accessLevel\": \"{{server.build.env.ACCESS_LEVEL}}\",\r\n            \"startWorlds[0].idleRestartInterval\": \"{{server.build.env.IDLE_RESTART_INTERVAL}}\",\r\n            \"startWorlds[0].roleCloudVariable\": \"{{server.build.env.ROLE_CLOUD_VARIABLE}}\",\r\n            \"startWorlds[0].allowUserCloudVariable\": \"{{server.build.env.ALLOW_USER_CLOUD_VARIABLE}}\",\r\n            \"startWorlds[0].hideFromPublicListing\": \"{{server.build.env.HIDDEN}}\",\r\n            \"startWorlds[0].maxUsers\": \"{{server.build.env.MAXUSERS}}\",\r\n            \"startWorlds[0].awayKickMinutes\": \"{{server.build.env.AFKTIMEOUT}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"Starting running world:\"\r\n}",
+        "logs": "{}",
+        "stop": "shutdown"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# steamcmd Base Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n\r\nSRCDS_APPID=740250\r\n\r\nif [ \"${STEAM_USER}\" == \"\" ]; then\r\n    echo -e \"steam user is not set.\\n\"\r\n    exit 1\r\nelse\r\n    echo -e \"user set to ${STEAM_USER}\"\r\nfi\r\n\r\ncd \/tmp\r\nmkdir -p \/mnt\/server\/steamcmd\r\ncurl -sSL -o steamcmd.tar.gz https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steamcmd\r\ncd \/mnt\/server\/steamcmd\r\n\r\nchown -R root:root \/mnt\r\nexport HOME=\/mnt\/server\r\n\r\n.\/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} +app_license_request ${STEAMAPPID} +app_update ${SRCDS_APPID} -beta ${STEAMBETA} -betapassword ${STEAMBETAPASSWORD} validate +quit\r\n\r\ncd ~\/\r\n\r\nexport STEAMAPPDIR=Steam\/steamapps\/common\/NeosVR\r\n\r\nmkdir ${STEAMAPPDIR}\/Config\r\n\r\ncurl -sSL -o ${STEAMAPPDIR}\/Config\/Config.json \"https:\/\/raw.githubusercontent.com\/NeosVR-Community-Projects\/neosvr-pterodactyl\/master\/Config.json\"\r\n\r\necho \"done\"",
+            "container": "ghcr.io\/pterodactyl\/installers:debian",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Headless Username",
+            "description": "",
+            "env_variable": "HEADLESS_EMAIL",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:40",
+            "field_type": "text"
+        },
+        {
+            "name": "Headless Password",
+            "description": "",
+            "env_variable": "HEADLESS_PASS",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:40",
+            "field_type": "text"
+        },
+        {
+            "name": "Session Name",
+            "description": "",
+            "env_variable": "SESSION_NAME",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:200",
+            "field_type": "text"
+        },
+        {
+            "name": "World Record URL",
+            "description": "",
+            "env_variable": "WORLD_URL",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:200",
+            "field_type": "text"
+        },
+        {
+            "name": "Access Level",
+            "description": "",
+            "env_variable": "ACCESS_LEVEL",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Steam Username",
+            "description": "",
+            "env_variable": "STEAM_USER",
+            "default_value": "",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Steam Password",
+            "description": "",
+            "env_variable": "STEAM_PASS",
+            "default_value": "",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string|max:40",
+            "field_type": "text"
+        },
+        {
+            "name": "Steam Beta",
+            "description": "",
+            "env_variable": "STEAMBETA",
+            "default_value": "headless-client",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string|max:40",
+            "field_type": "text"
+        },
+        {
+            "name": "Steam Beta Password",
+            "description": "",
+            "env_variable": "STEAMBETAPASSWORD",
+            "default_value": "",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string|max:80",
+            "field_type": "text"
+        },
+        {
+            "name": "Max concurrent transfers",
+            "description": "",
+            "env_variable": "CONCURRENT_TRANSFERS",
+            "default_value": "4",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "integer|max:16",
+            "field_type": "text"
+        },
+        {
+            "name": "Session description",
+            "description": "",
+            "env_variable": "SESSION_DESCRIPTION",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "string|max:800|nullable",
+            "field_type": "text"
+        },
+        {
+            "name": "Idle restart interval",
+            "description": "seconds (21600 is 6 hours)",
+            "env_variable": "IDLE_RESTART_INTERVAL",
+            "default_value": "21600",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "integer|max:604800",
+            "field_type": "text"
+        },
+        {
+            "name": "User roles cloud variable",
+            "description": "",
+            "env_variable": "ROLE_CLOUD_VARIABLE",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "string|max:100|nullable",
+            "field_type": "text"
+        },
+        {
+            "name": "Join override cloud variable",
+            "description": "",
+            "env_variable": "ALLOW_USER_CLOUD_VARIABLE",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "string|max:100|nullable",
+            "field_type": "text"
+        },
+        {
+            "name": "Required user to join cloud variable",
+            "description": "",
+            "env_variable": "REQUIRED_USER_JOIN_CLOUD_VARIABLE",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "string|max:100|nullable",
+            "field_type": "text"
+        },
+        {
+            "name": "Required user deny message",
+            "description": "",
+            "env_variable": "REQUIRED_USER_DENY_MESSAGE",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "string|max:100|nullable",
+            "field_type": "text"
+        },
+        {
+            "name": "Session hidden",
+            "description": "",
+            "env_variable": "HIDDEN",
+            "default_value": "0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Max users",
+            "description": "",
+            "env_variable": "MAXUSERS",
+            "default_value": "12",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|max:32",
+            "field_type": "text"
+        },
+        {
+            "name": "AFK Timeout",
+            "description": "",
+            "env_variable": "AFKTIMEOUT",
+            "default_value": "5",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|integer|max:30",
+            "field_type": "text"
+        },
+        {
+            "name": "Default admin",
+            "description": "In the format:\r\n\r\n{\"GrayBoltWolf\":\"Admin\", \"Ralinesh\":\"Builder\"}",
+            "env_variable": "DEFAULT_USER_ROLES",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "json|max:800|nullable",
+            "field_type": "text"
+        },
+        {
+            "name": "Session ID",
+            "description": "In the format:\r\n\r\nS-U-User-ID:Session-Name",
+            "env_variable": "SESSION_ID",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "string|max:200|nullable",
+            "field_type": "text"
+        }
+    ]
+}
+
