@@ -17,7 +17,7 @@
             "startWorlds[0].maxUsers": "{{server.build.env.MAXUSERS}}",
             "startWorlds[0].awayKickMinutes": "{{server.build.env.AFKTIMEOUT}}",
             "startWorlds[0].requiredUserJoinCloudVariable": "{{server.build.env.REQUIRED_USER_JOIN_CLOUD_VARIABLE}}",
-            "startWorlds[].requiredUserJoinCloudVariableDenyMessage": "{{server.build.env.REQUIRED_USER_DENY_MESSAGE}}"
+            "startWorlds[0].requiredUserJoinCloudVariableDenyMessage": "{{server.build.env.REQUIRED_USER_DENY_MESSAGE}}"
         }
     }
 }
