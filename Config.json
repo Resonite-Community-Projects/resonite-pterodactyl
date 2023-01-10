@@ -38,7 +38,7 @@
       "overrideCorrespondingWorldId": null,
       "parentSessionIds": [],
       "requiredUserJoinCloudVariable": null,
-      "requiredUserJoinCloudVariableDenyMessage": null,
+      "requiredUserJoinCloudVariableDenyMessage": "Verification required to join, see this commuinity Discord",
       "roleCloudVariable": "",
       "saveAsOwner": null,
       "saveOnExit": false,
