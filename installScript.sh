@@ -3,7 +3,7 @@
 #
 # Server Files: /mnt/server
 
-SRCDS_APPID=740250
+SRCDS_APPID=2519830
 
 if [ "${STEAM_USER}" == "" ]; then
     echo -e "steam user is not set.\n"
@@ -21,11 +21,11 @@ cd /mnt/server/steamcmd
 chown -R root:root /mnt
 export HOME=/mnt/server
 
-./steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} +app_license_request ${STEAMAPPID} +app_update ${SRCDS_APPID} -beta ${STEAMBETA} -betapassword ${STEAMBETAPASSWORD} validate +quit
+./steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} +app_license_request ${STEAMAPPID} +app_update ${SRCDS_APPID} -beta ${STEAMBETA} validate +quit
 
 cd ~/
 
-export STEAMAPPDIR=Steam/steamapps/common/NeosVR
+export STEAMAPPDIR=Steam/steamapps/common/Resonite
 
 mkdir ${STEAMAPPDIR}/Config
 
