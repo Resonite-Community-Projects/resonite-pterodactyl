@@ -1,7 +1,7 @@
 FROM mono
 
 RUN	apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get install -y locales jq curl lib32gcc1 libopus-dev libopus0 opus-tools
+	DEBIAN_FRONTEND=noninteractive apt-get install -y locales jq curl lib32gcc1 libopus-dev libopus0 opus-tools libc6-dev
 
 RUN	sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 	sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen && \
