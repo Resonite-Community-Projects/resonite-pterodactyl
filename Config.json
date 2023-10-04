@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/Neos-Metaverse/JSONSchemas/main/schemas/NeosHeadlessConfig.schema.json",
   "allowedUrlHosts": [
     "localhost",
-    "ad-sessions.neos.boltwolf.net"
+    "ad-sessions.resonite.boltwolf.net"
   ],
   "autoSpawnItems": null,
   "cacheFolder": null,
@@ -38,7 +38,7 @@
       "overrideCorrespondingWorldId": null,
       "parentSessionIds": [],
       "requiredUserJoinCloudVariable": null,
-      "requiredUserJoinCloudVariableDenyMessage": "Verification required to join, see this community Discord",
+      "requiredUserJoinCloudVariableDenyMessage": "Verification required to join, see this community's Discord",
       "roleCloudVariable": "",
       "saveAsOwner": null,
       "saveOnExit": false,

@@ -1,10 +1,6 @@
-# neosvr-pterodactyl
+# resonite-pterodactyl
 
-> [!WARNING]  
-> Depreciation notice for NeosVR, this project will be renamed and modified to support only Resonite.
-> Until the release a branch will be available for Resonite, the main branch will be for NeosVR until them.
-
-Docker image for Pterodactyl NeosVR headless server.
+Docker image for Pterodactyl Resonite headless server.
 
 ### Simple setup
 
@@ -12,7 +8,7 @@ Import egg-single-session-template.json for a starting point with a single sessi
 
 ### Or if you prefer to build the egg yourself:
 
-Docker image: `ghcr.io/neosvr-community-projects/neosvr-pterodactyl:master`
+Docker image: `ghcr.io/neosvr-community-projects/resonite-pterodactyl:master`
 
 Install script can be found in: `installScript.sh`, use `ghcr.io/pterodactyl/installers:debian` as the script container, and `bash` as the entrypoint command.
 
