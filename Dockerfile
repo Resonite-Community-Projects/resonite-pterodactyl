@@ -1,7 +1,10 @@
-FROM mono
+FROM debian:bookworm-slim
+
+RUN echo "deb https://download.mono-project.com/repo/debian stable-buster/snapshots/$MONO_VERSION main" > /etc/apt/sources.list.d/mono-official-stable.list
 
 RUN	apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get install -y locales jq curl lib32gcc1 libopus-dev libopus0 opus-tools libc6-dev assimp-utils
+	apt-get upgrade && \
+	DEBIAN_FRONTEND=noninteractive apt-get install -y locales jq curl lib32gcc1 libopus-dev libopus0 opus-tools libc6-dev assimp-utils mono-runtime \
 
 RUN	sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 	sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen && \
