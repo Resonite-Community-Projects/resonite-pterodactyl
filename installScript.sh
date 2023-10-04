@@ -27,7 +27,7 @@ cd ~/
 
 export STEAMAPPDIR=Steam/steamapps/common/Resonite/Headless
 
-mkdir ${STEAMAPPDIR}/Config
+mkdir -p ${STEAMAPPDIR}/Config
 
 curl -sSL -o ${STEAMAPPDIR}/Config/Config.json "https://raw.githubusercontent.com/NeosVR-Community-Projects/neosvr-pterodactyl/feature/resonite/Config.json"
 
