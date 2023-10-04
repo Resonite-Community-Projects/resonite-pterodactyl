@@ -1,7 +1,7 @@
 FROM debian:bookworm-slim
 
-RUN	apt-get update && \
-	apt-get upgrade
+RUN	apt-get -y update && \
+	apt-get -y upgrade
 
 RUN 	apt-get install -y jq curl lib32gcc1 libopus-dev libopus0 opus-tools mono-complete
 
