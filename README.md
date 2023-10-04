@@ -8,7 +8,7 @@ Import egg-single-session-template.json for a starting point with a single sessi
 
 ### Or if you prefer to build the egg yourself:
 
-Docker image: `ghcr.io/neosvr-community-projects/resonite-pterodactyl:master`
+Docker image: `ghcr.io/resonite-community-projects/resonite-pterodactyl:master`
 
 Install script can be found in: `installScript.sh`, use `ghcr.io/pterodactyl/installers:debian` as the script container, and `bash` as the entrypoint command.
 
