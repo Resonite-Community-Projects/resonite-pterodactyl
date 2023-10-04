@@ -1,6 +1,6 @@
 FROM debian:bookworm-slim
 
-ENV MONO_VERSION 6.10.0.104
+ENV MONO_VERSION 6.12.0.182
 
 RUN     apt-get update \
   && apt-get install -y --no-install-recommends gnupg dirmngr ca-certificates \
@@ -13,7 +13,7 @@ RUN     apt-get update \
   && apt-key list | grep Xamarin \
   && apt-get purge -y --auto-remove gnupg dirmngr
 
-RUN     echo "deb https://download.mono-project.com/repo/debian stable-buster/snapshots/$MONO_VERSION main" > /etc/apt/sources.list.d/mono-official-stable.list \
+RUN     echo "deb https://download.mono-project.com/repo/debian stable/snapshots/$MONO_VERSION main" > /etc/apt/sources.list.d/mono-official-stable.list \
   && apt-get update \
   && apt-get install -y mono-runtime \
   && rm -rf /var/lib/apt/lists/* /tmp/*
