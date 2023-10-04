@@ -1,5 +1,5 @@
 {
-    "Steam/steamapps/common/NeosVR/Config/Config.json": {
+    "Steam/steamapps/common/Resonite/Headless/Config/Config.json": {
         "parser": "json",
         "find": {
             "loginCredential": "{{server.build.env.HEADLESS_EMAIL}}",
