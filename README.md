@@ -14,7 +14,7 @@ Install script can be found in: `installScript.sh`, use `ghcr.io/pterodactyl/ins
 
 Configuration variables: `configurationVariables.json`
 
-Start command is: `mono Neos.exe`
+Start command is: `mono Resonite.exe`
 
 Start configuration is: 
 ```
