@@ -1,16 +1,5 @@
 #!/bin/bash
-# steamcmd Base Installation Script
-#
-# Server Files: /mnt/server
-
-SRCDS_APPID=2519830
-
-if [ "${STEAM_USER}" == "" ]; then
-    echo -e "steam user is not set.\n"
-    exit 1
-else
-    echo -e "user set to ${STEAM_USER}"
-fi
+STEAMAPPID=2519830
 
 cd /tmp
 mkdir -p /mnt/server/steamcmd
@@ -21,7 +10,7 @@ cd /mnt/server/steamcmd
 chown -R root:root /mnt
 export HOME=/mnt/server
 
-./steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} +app_license_request ${STEAMAPPID} +app_update ${SRCDS_APPID} -beta ${STEAMBETA} validate +quit
+./steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} +app_license_request ${STEAMAPPID} +app_update ${STEAMAPPID} -beta ${STEAMBETA} -betapassword ${STEAMBETAPASS} validate +quit
 
 cd ~/
 
