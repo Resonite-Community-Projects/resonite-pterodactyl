@@ -2,7 +2,7 @@
 
 STEAMAPPID=2519830
 
-./steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} +app_license_request ${STEAMAPPID} +app_update ${STEAMAPPID} -beta ${STEAMBETA} -betapassword ${STEAMBETAPASS} validate +quit
+./steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASS} +app_update ${STEAMAPPID} -beta ${STEAMBETA} -betapassword ${STEAMBETAPASS} validate +quit
 
 cd Steam/steamapps/common/Resonite/Headless
 
