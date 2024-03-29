@@ -4,20 +4,14 @@
     "localhost",
     "ad-sessions.resonite.boltwolf.net"
   ],
-  "autoSpawnItems": null,
-  "cacheFolder": null,
   "comment": "",
-  "dataFolder": null,
   "loginCredential": "LOGIN_USERNAME",
   "loginPassword": "LOGIN_PASSWORD",
-  "logsFolder": null,
   "maxConcurrentAssetTransfers": 8,
   "startWorlds": [
     {
       "accessLevel": "RegisteredUsers",
       "allowUserCloudVariable": "",
-      "autoInviteMessage": null,
-      "autoInviteUsernames": null,
       "autoRecover": true,
       "autoSleep": false,
       "autosaveInterval": -1,
@@ -35,15 +29,11 @@
       "loadWorldURL": "START_WORLD_URL",
       "maxUsers": 24,
       "mobileFriendly": false,
-      "overrideCorrespondingWorldId": null,
-      "parentSessionIds": [],
       "requiredUserJoinCloudVariable": null,
       "requiredUserJoinCloudVariableDenyMessage": "Verification required to join, see this community's Discord",
       "roleCloudVariable": "",
-      "saveAsOwner": null,
       "saveOnExit": false,
       "sessionName": "SESSION_NAME",
-      "tags": []
     }
   ],
   "tickRate": 60,
