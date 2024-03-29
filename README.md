@@ -1,6 +1,6 @@
 # resonite-pterodactyl
 
-Docker image for Pterodactyl Resonite headless server.
+Docker image for Pterodactyl Resonite headless server. This egg is intended only for specific large-scale Resonite communities to utilize. There are special configuration parameters available in the image which would only be utilized in large hosting scenarios.
 
 ### Simple setup
 
@@ -24,3 +24,7 @@ Start configuration is:
 ```
 
 Stop command is: `shutdown`
+
+### Support
+
+If you encounter bugs or issues running this egg in your community, please reach out directly to @GrayBoltWolf on GitHub or Discord. Please do not ask the Resonite team for assistance with your headless if you are using this Pterodactyl egg.
