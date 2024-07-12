@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM mcr.microsoft.com/dotnet/runtime
 
 RUN	apt-get -y update && \
 	apt-get -y upgrade
